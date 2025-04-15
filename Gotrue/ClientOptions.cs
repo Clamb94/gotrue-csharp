@@ -54,5 +54,10 @@ namespace Supabase.Gotrue
 		/// confirmed emails - mirrors the Gotrue server's configuration.
 		/// </summary>
 		public bool AllowUnconfirmedUserSessions { get; set; }
+
+        /// <summary>
+        /// HttpClient to be used for requests
+        /// </summary>
+        public HttpClient RequestHttpClient { get; set; } = new HttpClient();
 	}
 }
