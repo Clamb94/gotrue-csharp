@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net.Http;
 using static Supabase.Gotrue.Constants;
 
 namespace Supabase.Gotrue
@@ -59,5 +60,5 @@ namespace Supabase.Gotrue
         /// HttpClient to be used for requests
         /// </summary>
         public HttpClient RequestHttpClient { get; set; } = new HttpClient();
-	}
+    }
 }

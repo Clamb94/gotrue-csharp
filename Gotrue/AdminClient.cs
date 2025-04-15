@@ -33,7 +33,9 @@ namespace Supabase.Gotrue
 			options ??= new ClientOptions();
 			Options = options;
 			_api = new Api(options.Url, options.Headers);
-		}
+
+			Helpers.Client = options.RequestHttpClient;
+        }
 
 		/// <summary>
 		/// Headers sent to the API on every request.

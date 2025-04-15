@@ -145,7 +145,10 @@ namespace Supabase.Gotrue
 			return builder.Uri;
 		}
 
-		private static readonly HttpClient Client = new HttpClient();
+        /// <summary>
+        /// The HttpClient to be used for requests
+        /// </summary>
+        public static HttpClient? Client;
 
 		/// <summary>
 		/// Helper to make a request using the defined parameters to an API Endpoint and coerce into a model. 
@@ -205,6 +208,11 @@ namespace Supabase.Gotrue
 
 			try
 			{
+				if (Client == null)
+				{
+                    throw new GotrueException("HttpClient is not initialized.");
+                }
+
 				using var response = await Client.SendAsync(requestMessage).ConfigureAwait(false);
 				var content = await response.Content.ReadAsStringAsync();
 				if (!response.IsSuccessStatusCode)

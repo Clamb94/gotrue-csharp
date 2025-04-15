@@ -84,6 +84,8 @@ namespace Supabase.Gotrue
 				TokenRefresh = new TokenRefresh(this);
 				_authEventHandlers.Add(TokenRefresh.ManageAutoRefresh);
 			}
+
+			Helpers.Client = options.RequestHttpClient;
 		}
 
 		/// <inheritdoc />
